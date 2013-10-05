@@ -66,8 +66,7 @@ public class NewAppWidget extends AppWidgetProvider {
 
                 brilloMax=Double.parseDouble(String.valueOf(max))/100;
                 brilloMin=Double.parseDouble(String.valueOf(min))/100;
-                Runtime r=Runtime.getRuntime();
-                Process su = r.exec("su");
+                Process su = Runtime.getRuntime().exec("su");
                 OutputStream outputStream = su.getOutputStream();
                 outputStream.write("am start -n \"com.mediatek.engineermode/com.mediatek.engineermode.networkselect.NetworkSelectActivity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER".getBytes());
                 outputStream.flush();
